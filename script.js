@@ -79,6 +79,8 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const universal=document.querySelector(".universal");
+
 /////////////////////////////////////////////////
 // Functions
 const formatMovementDate = function (date, locale) {
@@ -280,6 +282,7 @@ let currentAccount,timer;
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
   e.preventDefault();
+  
 
   currentAccount = accounts.find(
     acc => acc.username === inputLoginUsername.value.toLowerCase()
@@ -332,6 +335,11 @@ btnLogin.addEventListener('click', function (e) {
     timer=startLogOutTimer();
     // Update UI
     updateUI(currentAccount);
+
+    // block display of id and passward
+    universal.classList.add('blocked')
+
+
   }
 });
 
